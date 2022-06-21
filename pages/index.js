@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
 import { useState,useEffect } from 'react';
 
@@ -16,9 +17,9 @@ export default function Home({posts})  {
     <div>
      { !isSSR &&  posts.map((post) =>
     <div key={post.id}>
-    <h1 dangerouslySetInnerHTML={{__html: post.title.rendered }}></h1>
+    <h1 className={styles.title} dangerouslySetInnerHTML={{__html: post.title.rendered }}></h1>
     <p>{post.date}</p> 
-    <p dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
+    <p className={styles.single} dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
     <p dangerouslySetInnerHTML={{__html: post.content.rendered}}></p>
     </div> 
   )}
